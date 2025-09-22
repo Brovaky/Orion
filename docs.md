@@ -95,19 +95,19 @@ Tab:AddToggle({
     Save = true,
     Flag = "",
 	Default = false,
-	Callback = function(Value)
-		print(Value)
+	Callback = function(v)
+		print(v)
 	end    
 })
 
 --[[
 Name = <string> - The name of the toggle.
-Default = <bool> - The default value of the toggle.
+Default = <bool> - The default v of the toggle.
 Callback = <function> - The function of the toggle.
 ]]
 ```
 
-### Changing the value of an existing Toggle
+### Changing the v of an existing Toggle
 ```lua
 CoolToggle:Set(true)
 ```
@@ -119,19 +119,19 @@ CoolToggle:Set(true)
 Tab:AddColorpicker({
 	Name = "Colorpicker",
 	Default = Color3.fromRGB(255, 0, 0),
-	Callback = function(Value)
-		print(Value)
+	Callback = function(v)
+		print(v)
 	end	  
 })
 
 --[[
 Name = <string> - The name of the colorpicker.
-Default = <color3> - The default value of the colorpicker.
+Default = <color3> - The default v of the colorpicker.
 Callback = <function> - The function of the colorpicker.
 ]]
 ```
 
-### Setting the color picker's value
+### Setting the color picker's v
 ```lua
 ColorPicker:Set(Color3.fromRGB(255,255,255))
 ```
@@ -146,26 +146,26 @@ Tab:AddSlider({
 	Default = 5,
 	Color = Color3.fromRGB(255,255,255),
 	Increment = 1,
-	ValueName = "bananas",
+	vName = "bananas",
   Save = true,
   Flag = "",
-	Callback = function(Value)
-		print(Value)
+	Callback = function(v)
+		print(v)
 	end    
 })
 
 --[[
 Name = <string> - The name of the slider.
-Min = <number> - The minimal value of the slider.
-Max = <number> - The maxium value of the slider.
-Increment = <number> - How much the slider will change value when dragging.
-Default = <number> - The default value of the slider.
-ValueName = <string> - The text after the value number.
+Min = <number> - The minimal v of the slider.
+Max = <number> - The maxium v of the slider.
+Increment = <number> - How much the slider will change v when dragging.
+Default = <number> - The default v of the slider.
+vName = <string> - The text after the v number.
 Callback = <function> - The function of the slider.
 ]]
 ```
 
-### Change Slider Value
+### Change Slider v
 ```lua
 Slider:Set(2)
 ```
@@ -177,7 +177,7 @@ Make sure you make your slider a variable (local CoolSlider = Tab:AddSlider...) 
 Tab:AddLabel("Label")
 ```
 
-### Changing the value of an existing label
+### Changing the v of an existing label
 ```lua
 CoolLabel:Set("Label New!")
 ```
@@ -200,14 +200,14 @@ Tab:AddTextbox({
 	Name = "Textbox",
 	Default = "default box input",
 	TextDisappear = true,
-	Callback = function(Value)
-		print(Value)
+	Callback = function(v)
+		print(v)
 	end	  
 })
 
 --[[
 Name = <string> - The name of the textbox.
-Default = <string> - The default value of the textbox.
+Default = <string> - The default v of the textbox.
 TextDisappear = <bool> - Makes the text disappear in the textbox after losing focus.
 Callback = <function> - The function of the textbox.
 ]]
@@ -227,13 +227,13 @@ Tab:AddBind({
 
 --[[
 Name = <string> - The name of the bind.
-Default = <keycode> - The default value of the bind.
+Default = <keycode> - The default v of the bind.
 Hold = <bool> - Makes the bind work like: Holding the key > The bind returns true, Not holding the key > Bind returns false.
 Callback = <function> - The function of the bind.
 ]]
 ```
 
-### Chaning the value of a bind
+### Chaning the v of a bind
 ```lua
 Bind:Set(Enum.KeyCode.E)
 ```
@@ -245,14 +245,14 @@ Tab:AddDropdown({
 	Name = "Dropdown",
 	Default = "1",
 	Options = {"1", "2"},
-	Callback = function(Value)
-		print(Value)
+	Callback = function(v)
+		print(v)
 	end    
 })
 
 --[[
 Name = <string> - The name of the dropdown.
-Default = <string> - The default value of the dropdown.
+Default = <string> - The default v of the dropdown.
 Options = <table> - The options in the dropdown.
 Callback = <function> - The function of the dropdown.
 ]]
@@ -263,7 +263,7 @@ Callback = <function> - The function of the dropdown.
 Dropdown:Refresh(List<table>,true)
 ```
 
-The above boolean value "true" is whether or not the current buttons will be deleted.
+The above boolean v "true" is whether or not the current buttons will be deleted.
 ### Selecting a dropdown option
 ```lua
 Dropdown:Set("dropdown option")
@@ -276,7 +276,7 @@ OrionLib:Init()
 ```
 
 ### How flags work.
-The flags feature in the ui may be confusing for some people. It serves the purpose of being the ID of an element in the config file, and makes accessing the value of an element anywhere in the code possible.
+The flags feature in the ui may be confusing for some people. It serves the purpose of being the ID of an element in the config file, and makes accessing the v of an element anywhere in the code possible.
 Below in an example of using flags.
 ```lua
 Tab1:AddToggle({
@@ -286,13 +286,13 @@ Tab1:AddToggle({
     Flag = "toggle"
 })
 
-print(OrionLib.Flags["toggle"].Value) -- prints the value of the toggle.
+print(OrionLib.Flags["toggle"].v) -- prints the v of the toggle.
 ```
 Flags only work with the toggle, slider, dropdown, bind, and colorpicker.
 
 ### Making your interface work with configs.
 In order to make your interface use the configs function you first need to add the `SaveConfig` and `ConfigFolder` arguments to your window function. The explanation of these arguments in above.
-Then you need to add the `Flag` and `Save` values to every toggle, slider, dropdown, bind, and colorpicker you want to include in the config file.
+Then you need to add the `Flag` and `Save` vs to every toggle, slider, dropdown, bind, and colorpicker you want to include in the config file.
 The `Flag = <string>` argument is the ID of an element in the config file.
 The `Save = <bool>` argument includes the element in the config file.
 Config files are made for every game the library is launched in.
