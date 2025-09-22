@@ -92,8 +92,8 @@ Callback = <function> - The function of the button.
 ```lua
 Tab:AddToggle({
 	Name = "This is a toggle!",
-  Save = true,
-  Flag = "",
+    Save = true,
+    Flag = "",
 	Default = false,
 	Callback = function(Value)
 		print(Value)
